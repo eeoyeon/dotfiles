@@ -63,13 +63,3 @@ bindkey '^[[3;5~' delete-word   # ["ctrl+delete"]
 bindkey ' ' magic-space         # ["space"] Perform history expansion and insert a space into the buffer. This is intended to be bound to space.
 bindkey '^[m' copy-prev-shell-word # ["alt+m"]
 bindkey '^[[OM' accept-line # ["numberpad[enter]"]
-
-# CommandNotFound
-if [[ -x /usr/lib/command-not-found ]] ; then
-  if (( ! ${+functions[command_not_found_handler]} )) ; then
-    function command_not_found_handler {
-      [[ -x /usr/lib/command-not-found ]] || return 1
-      /usr/lib/command-not-found -- ${1+"$1"}
-    }
-  fi
-fi
