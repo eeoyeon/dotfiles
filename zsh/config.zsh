@@ -1,7 +1,8 @@
 ### options
 setopt AUTO_CD
 setopt COMPLETE_IN_WORD
-
+unsetopt LIST_BEEP
+unsetopt BEEP
 ## history
 HISTFILE=$HOME/.history
 HISTSIZE=1000
