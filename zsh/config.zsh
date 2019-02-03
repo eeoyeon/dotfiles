@@ -15,7 +15,7 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
-
+setopt HIST_VERIFY
 ## completion
 zstyle ':completion:*' menu select
 # case insenstive
