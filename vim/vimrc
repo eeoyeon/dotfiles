@@ -16,7 +16,7 @@ set hlsearch               " Highlight the last used search pattern.
 set ignorecase             " Searching with / is case-insensitive.
 set smartcase              " Disable 'ignorecase' if the term contains upper-case.
 set nrformats-=octal       " Remove octal support from 'nrformats'.
-set tabstop=4              " Size of a Tab character.
+set tabstop=2              " Size of a Tab character.
 set shiftwidth=0           " Use same value as 'tabstop'.
 set softtabstop=-1         " Use same value as 'shiftwidth'.
 set formatoptions+=ncroqlj " Control automatic formatting.
