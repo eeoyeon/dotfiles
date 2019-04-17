@@ -1,0 +1,5 @@
+[user]
+	email = mmazzz123@gmail.com
+	name = mmazzz
+[alias]
+	l = log --graph --oneline
