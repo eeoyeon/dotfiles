@@ -3,3 +3,4 @@
 	name = mmazzz
 [alias]
 	l = log --graph --oneline
+	la = log --oneline --graph --all
