@@ -1,3 +1,8 @@
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q | source $MYVIMRC
+  \| endif
+
 set nocompatible           " Vim defaults rather than vi ones. Keep at top.
 filetype plugin indent on  " Enable filetype-specific settings.
 set backspace=2            " Make the backspace behave as most applications.

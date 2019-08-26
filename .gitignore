@@ -1,3 +1,4 @@
 *.zwc
 # auto generated
 fish_variables
+/vim/plugins
