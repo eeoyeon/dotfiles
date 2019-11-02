@@ -1,1 +1,0 @@
-/home/mmazzz/.config/fish/functions/theme-pure/fish_right_prompt.fish
