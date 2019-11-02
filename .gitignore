@@ -2,3 +2,6 @@
 *.zwc
 fish_variables
 /vim/plugins
+
+# swap files
+*.swp
