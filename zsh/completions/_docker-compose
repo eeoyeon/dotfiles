@@ -117,6 +117,7 @@ __docker-compose_subcommand() {
                 '--no-cache[Do not use cache when building the image.]' \
                 '--pull[Always attempt to pull a newer version of the image.]' \
                 '--compress[Compress the build context using gzip.]' \
+                '--parallel[Build images in parallel.]' \
                 '*:services:__docker-compose_services_from_build' && ret=0
             ;;
         (bundle)
@@ -339,7 +340,7 @@ _docker-compose() {
         '(- :)'{-h,--help}'[Get help]' \
         '*'{-f,--file}"[${file_description}]:file:_files -g '*.yml'" \
         '(-p --project-name)'{-p,--project-name}'[Specify an alternate project name (default: directory name)]:project name:' \
-        "--compatibility[If set, Compose will attempt to convert deploy keys in v3 files to their non-Swarm equivalent]" \
+        "--compatibility[If set, Compose will attempt to convert keys in v3 files to their non-Swarm equivalent]" \
         '(- :)'{-v,--version}'[Print version and exit]' \
         '--verbose[Show more output]' \
         '--log-level=[Set log level]:level:(DEBUG INFO WARNING ERROR CRITICAL)' \
@@ -354,7 +355,7 @@ _docker-compose() {
         '(-): :->command' \
         '(-)*:: :->option-or-argument' && ret=0
 
-    local -a relevant_compose_flags relevant_docker_flags compose_options docker_options
+    local -a relevant_compose_flags relevant_compose_repeatable_flags relevant_docker_flags compose_options docker_options
 
     relevant_compose_flags=(
         "--file" "-f"
@@ -366,6 +367,10 @@ _docker-compose() {
         "--tlskey"
         "--tlsverify"
         "--skip-hostname-check"
+    )
+
+    relevant_compose_repeatable_flags=(
+        "--file" "-f"
     )
 
     relevant_docker_flags=(
@@ -385,9 +390,18 @@ _docker-compose() {
             fi
         fi
         if [[ -n "${relevant_compose_flags[(r)$k]}" ]]; then
-            compose_options+=$k
-            if [[ -n "$opt_args[$k]" ]]; then
-                compose_options+=$opt_args[$k]
+            if [[ -n "${relevant_compose_repeatable_flags[(r)$k]}"  ]]; then
+                values=("${(@s/:/)opt_args[$k]}")
+                for value in $values
+                do
+                    compose_options+=$k
+                    compose_options+=$value
+                done
+            else
+                compose_options+=$k
+                if [[ -n "$opt_args[$k]" ]]; then
+                    compose_options+=$opt_args[$k]
+                fi
             fi
         fi
     done
