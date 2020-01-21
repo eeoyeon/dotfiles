@@ -1,6 +1,5 @@
 # auto generated
 *.zwc
-fish_variables
 /vim/plugins
 /zsh/plugins.sh
 # swap files
