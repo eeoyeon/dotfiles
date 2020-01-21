@@ -12,7 +12,6 @@ source $ZSH/config.zsh
 # autoload -U compinit && compinit
 
 # zsh plugin manager
-source $ZSH/antigen.zsh
 
 # alias
 alias ls='ls --color=auto'
