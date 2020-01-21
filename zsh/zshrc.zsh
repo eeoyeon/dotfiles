@@ -9,9 +9,15 @@ source $ZSH/config.zsh
 
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
 
-# autoload -U compinit && compinit
+autoload -Uz compinit
+for dump in $HOME/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
-# zsh plugin manager
+# Load antibody
+[ ! -f $ZSH/plugins.sh ] && antibody bundle < $ZSH/plugins.txt > $ZSH/plugins.sh
+source $ZSH/plugins.sh
 
 # alias
 alias ls='ls --color=auto'
