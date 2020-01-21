@@ -3,17 +3,19 @@ export LS_COLORS="fi=00:di=34:ow=34;40:ln=35:pi=30;44:so=35;44:do=35;44:bd=33;44
 
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
-
 fpath=($ZSH/completions $fpath)
 source $ZSH/config.zsh
 
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
 
+ZCOMPDUMP="$HOME/.zcompdump-${ZSH_VERSION}"
 autoload -Uz compinit
-for dump in $HOME/.zcompdump(N.mh+24); do
-  compinit
+for dump in $ZCOMPDUMP(N.mh+24); do
+  compinit -d $ZCOMPDUMP
 done
-compinit -C
+compinit -C -d $ZCOMPDUMP
+
+# unset ZCOMPDUMP
 
 # Load antibody
 [ ! -f $ZSH/plugins.sh ] && antibody bundle < $ZSH/plugins.txt > $ZSH/plugins.sh
