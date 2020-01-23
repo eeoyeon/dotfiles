@@ -38,7 +38,7 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 
 
 zstyle ':completion::complete:*' use-cache true
-zstyle ':completion::complete:*' cache-path "$HOME/.cache/zcompcache"
+zstyle ':completion::complete:*' cache-path "$HOME/.cache/zsh"
 
 zstyle ':completion:*:*:*:users' ignored-patterns \
         adm amanda apache at avahi avahi-autoipd beaglidx bin cacti canna \
