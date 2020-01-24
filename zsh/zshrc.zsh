@@ -9,17 +9,18 @@ source $ZSH/config.zsh
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
 
 ZCOMPDUMP="$HOME/.zcompdump-${ZSH_VERSION}"
-autoload -Uz compinit
-for dump in $ZCOMPDUMP(N.mh+24); do
-  compinit -d $ZCOMPDUMP
-done
-compinit -C -d $ZCOMPDUMP
-
-# unset ZCOMPDUMP
 
 # Load antibody
 [ ! -f $ZSH/plugins.sh ] && antibody bundle < $ZSH/plugins.txt > $ZSH/plugins.sh
 source $ZSH/plugins.sh
+
+autoload -Uz compinit
+for dump in $ZCOMPDUMP(N.mh+6); do
+  compinit -d $ZCOMPDUMP
+done
+compinit -C -d $ZCOMPDUMP
+
+unset ZCOMPDUMP
 
 # alias
 alias ls='ls --color=auto'
