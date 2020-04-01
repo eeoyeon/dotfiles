@@ -1,6 +1,5 @@
 # auto generated
 *.zwc
 /vim/plugins
-/zsh/plugins.sh
 # swap files
 *.swp
