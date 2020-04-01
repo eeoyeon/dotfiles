@@ -1,5 +1,5 @@
 export GOPATH=$HOME/go
-
+export EDITOR=vim
 export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 export LS_COLORS="fi=00:di=34:ow=34;40:ln=35:pi=30;44:so=35;44:do=35;44:bd=33;44:cd=37;44:or=05;37;41:mi=05;37;41:ex=01;31"
 
