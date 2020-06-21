@@ -5,3 +5,5 @@
 	l = log --graph --oneline
 	la = log --oneline --graph --all
 	s = status
+[pull]
+	rebase = true
