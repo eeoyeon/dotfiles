@@ -1,5 +1,7 @@
 # auto generated
 *.zwc
 /vim/plugins
+/fish/fish_variables
+
 # swap files
 *.swp
