@@ -1,5 +1,10 @@
 set -x EDITOR vim
 
+# Go
+set -x GOPATH $HOME/go
+set -xa PATH $GOPATH/bin
+
+# Fisher
 set fisher_path $__fish_config_dir/plugins
 set fish_function_path $fisher_path/functions $fish_function_path
 set fish_complete_path $fisher_path/completions $fish_complete_path
