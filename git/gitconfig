@@ -1,9 +1,13 @@
 [user]
 	email = mmazzz123@gmail.com
 	name = mmazzz
-[alias]
-	l = log --graph --oneline
-	la = log --oneline --graph --all
-	s = status
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+[alias]
+	l = log --oneline
+	la = log --oneline --graph --all
+	s = status
