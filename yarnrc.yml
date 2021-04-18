@@ -1,0 +1,8 @@
+enableGlobalCache: true
+
+enableTelemetry: false
+
+initFields:
+  version: 0.0.0
+
+preferInteractive: true
